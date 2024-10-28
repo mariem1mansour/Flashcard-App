@@ -1,9 +1,60 @@
-{% extends "base.html"%} {% block title %}MANSOUR |Register{% endblock%}
-{% block content%}
-<h1>register page</h1>
-<form method="POST">
-  <h3>register</h3>
-  <input type="text" name="name" id="name">
-  <button type="submit">submit</button>
-</form>
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://img.freepik.com/free-vector/login-concept-illustration_114360-757.jpg?t=st=1730137996~exp=1730141596~hmac=04c8a22e1bb8b54701019e18f5645758dfdda710980b79f91e9affa6055dabdc&w=740" class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form method="POST">
+          <h3 align="center">Register</h3>
+          
+          <!-- Email input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="email" id="email" name="email" class="form-control form-control-lg" placeholder="Enter email" />
+            <label class="form-label" for="email">Email Address</label>
+          </div>
+
+          <!-- full Name input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="fullName" name="fullName" class="form-control form-control-lg" placeholder="Enter full name" />
+            <label class="form-label" for="fullName">full Name</label>
+          </div>
+
+          <!-- Password input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="password" id="password1" name="password1" class="form-control form-control-lg" placeholder="Enter password" />
+            <label class="form-label" for="password1">Password</label>
+          </div>
+
+          <!-- Confirm Password input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="password" id="password2" name="password2" class="form-control form-control-lg" placeholder="Confirm password" />
+            <label class="form-label" for="password2">Password (Confirm)</label>
+          </div>
+
+        
+
+          <!-- Submit button -->
+          <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block">Register</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .divider:after,
+  .divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }
+</style>
 {% endblock %}
