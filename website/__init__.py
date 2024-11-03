@@ -4,7 +4,7 @@ from os import path
 from flask_login import LoginManager
 
 db = SQLAlchemy()
-DB_NAME = "flashcard.db"
+DB_NAME = "mariem.db"
 
 
 def create_app():
