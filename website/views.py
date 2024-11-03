@@ -28,7 +28,7 @@ def home():
 def delete_flashcard():  
     flashcard = json.loads(request.data) # this function expects a JSON from the INDEX.js file 
     flashcardId = flashcard['flashcardId']
-    flashcard = flashcard.query.get(flashcardId)
+    flashcard = Flashcard.query.get(flashcardId)
     if flashcard:
         if flashcard.user_id == current_user.id:
             db.session.delete(flashcard)
