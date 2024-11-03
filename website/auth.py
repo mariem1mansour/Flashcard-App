@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash
-
+from .models import User
 auth = Blueprint("auth", __name__)
 
 @auth.route("/login", methods=['GET', 'POST'])
@@ -30,20 +30,20 @@ def register():
         password2 = request.form.get("password2") or ""
 
         # Validation améliorée pour s'assurer que les valeurs ne soient pas None
-        if not email:
-            flash('Veuillez entrer une adresse email.', category='error')
-        elif len(email) < 4:
-            flash('L\'email doit contenir plus de 3 caractères.', category='error')
-        elif not fullname:
-            flash('Veuillez entrer votre nom complet.', category='error')
-        elif len(fullname) < 2:
-            flash('Le nom complet doit contenir au moins 2 caractères.', category='error')
-        elif password1 != password2:
+        # if not email:
+        #     flash('Veuillez entrer une adresse email.', category='error')
+        # elif len(email) < 4:
+        #     flash('L\'email doit contenir plus de 3 caractères.', category='error')
+        # elif not fullname:
+        #     flash('Veuillez entrer votre nom complet.', category='error')
+        # elif len(fullname) < 2:
+        #     flash('Le nom complet doit contenir au moins 2 caractères.', category='error')
+        if password1 != password2:
             flash('Les mots de passe ne correspondent pas.', category="error")
-        elif len(password1) < 7:
-            flash('Le mot de passe doit contenir au moins 7 caractères.', category='error')
+        # elif len(password1) < 7:
+        #     flash('Le mot de passe doit contenir au moins 7 caractères.', category='error')
         else:
-            # Logique d'enregistrement
-            flash('Compte créé avec succès!', category='success')
+           new_user = User(email=email, fullname=fullname)
+           flash('Compte créé avec succès!', category='success')
 
     return render_template("register.html")
